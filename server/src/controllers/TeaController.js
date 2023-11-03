@@ -21,7 +21,7 @@ module.exports = {
             res.send(tea.toJSON())
         } catch (err) {
             res.status(500).send({
-                error: 'Create Tefal incorrect'
+                error: 'Create Tea incorrect'
             })
         }
     },
