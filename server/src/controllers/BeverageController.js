@@ -1,14 +1,14 @@
-const { Tea } = require('../models')
+const { Beverage } = require('../models')
 
 module.exports = {
     //get all user
     async index(req, res) {
         try {
-            const teas = await Tea.findAll()
-            res.send(teas)
+            const beverages = await Beverage.findAll()
+            res.send(beverages)
         } catch (err) {
             res.status(500).send({
-                error: 'the Tea information was incorrect'
+                error: 'the Beverage information was incorrect'
             })
         }
     },
@@ -17,11 +17,11 @@ module.exports = {
     // create user
     async create(req, res) {
         try {
-            const tea = await Tea.create(req.body)
-            res.send(tea.toJSON())
+            const beverage = await Beverage.create(req.body)
+            res.send(beverage.toJSON())
         } catch (err) {
             res.status(500).send({
-                error: 'Create Tea incorrect'
+                error: 'Create Beverage incorrect'
             })
         }
     },
@@ -29,36 +29,36 @@ module.exports = {
     // edit user, suspend, active
     async put(req, res) {
         try {
-            await Tea.update(req.body, {
+            await Beverage.update(req.body, {
                 where: {
-                    id: req.params.teaId
+                    id: req.params.beverageId
                 }
             })
             res.send(req.body)
         } catch (err) {
             res.status(500).send({
-                error: 'Update Tea incorrect'
+                error: 'Update Beverage incorrect'
             })
         }
     },
 
     async delete(req, res) {
         try {
-            const tea = await Tea.findOne({
+            const beverage = await Beverage.findOne({
                 where: {
-                    id: req.params.teaId
+                    id: req.params.beverageId
                 }
             })
-            if (!tea) {
+            if (!beverage) {
                 return res.status(403).send({
-                    error: 'The Tea information was incorrect'
+                    error: 'The Beverage information was incorrect'
                 })
             }
-            await tea.destroy()
-            res.send(tea)
+            await beverage.destroy()
+            res.send(beverage)
         } catch (err) {
             res.status(500).send({
-                error: 'The Tea information was incorrect'
+                error: 'The Beverage information was incorrect'
             })
         }
     },
@@ -66,11 +66,11 @@ module.exports = {
     // get user by id
     async show(req, res) {
         try {
-            const tea = await Tea.findByPk(req.params.teaId)
-            res.send(tea)
+            const beverage = await Beverage.findByPk(req.params.beverageId)
+            res.send(beverage)
         } catch (err) {
             res.status(500).send({
-                error: 'The Tea information was incorrect'
+                error: 'The Beverage information was incorrect'
             })
         }
     },
