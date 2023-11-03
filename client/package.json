@@ -1,8 +1,8 @@
 {
-  "name": "nv-webblog-client",
+  "name": "nv-wbblog-client",
   "version": "1.0.0",
-  "description": "nodejs vuejs wbblog client",
-  "author": "thitipong rattiya",
+  "description": "nodejs vuejs webblog client",
+  "author": "patipol kaeomaung",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,15 +11,14 @@
   },
   "dependencies": {
     "axios": "^1.5.0",
-    "cors": "^2.8.5",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.3",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.6.2",
-    "vuex-persistedstate": "^2.7.1",
-    "vuex-router-sync": "^5.0.0"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.12.3",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
