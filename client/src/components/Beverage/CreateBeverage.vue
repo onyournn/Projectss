@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <br>
             <div class="container">
-                <h1 class="mt-5">เพิ่มข้อมูลหนังสือ</h1><br>
-                <form v-on:submit.prevent="createBook" class="form">
+                <h1 class="mt-5">เพิ่มข้อมูลเครื่องดื่ม</h1><br>
+                <form v-on:submit.prevent="createBeverage" class="form">
                     <center>
 
                         <p class="form-group col-md-4">
-                            <label for="title">ชื่อหนังสือ</label>
-                            <input type="text" v-model="book.Title" class="form-control" id="title">
+                            <label for="title">ชื่อเครื่องดื่ม</label>
+                            <input type="text" v-model="beverage.Title" class="form-control" id="title">
                         </p>
                         <p class="form-group col-md-4">
                             <label for="author">ชื่อผู้แต่ง</label>
@@ -31,10 +31,7 @@
                             <label for="price">ภาษา</label>
                             <input type="text" v-model="book.Language" class="form-control" id="price">
                         </p>
-                        <p class="form-group col-md-4">
-                            <label for="price">ราคา(บาท)</label>
-                            <input type="text" v-model="book.Price" class="form-control" id="price">
-                        </p>
+                       
                         <p>
                             <button type="submit" class="btn btn-primary float-right">ยืนยัน</button>
                             <button v-on:click="navigateTo('/books')" class="btn btn-primary float-right">ย้อนกลับ</button>
