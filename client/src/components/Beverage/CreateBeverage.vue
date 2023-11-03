@@ -1,76 +1,37 @@
 <template>
-    <div class="background-image">
-        <div class="container-fluid">
-            <br>
-            <div class="container">
-                <h1 class="mt-5">เพิ่มข้อมูลเครื่องดื่ม</h1><br>
-                <form v-on:submit.prevent="createBeverage" class="form">
-                    <center>
-
-                        <p class="form-group col-md-4">
-                            <label for="title">ชื่อเครื่องดื่ม</label>
-                            <input type="text" v-model="beverage.Title" class="form-control" id="title">
-                        </p>
-                        <p class="form-group col-md-4">
-                            <label for="author">ชื่อผู้แต่ง</label>
-                            <input type="text" v-model="book.Author" class="form-control" id="author">
-                        </p>
-                        <p class="form-group col-md-4">
-                            <label for="format">สำนักพิมพ์</label>
-                            <input type="text" v-model="book.Publisher" class="form-control" id="format">
-                        </p>
-                        <p class="form-group col-md-4">
-                            <label for="genre">ปีที่พิมพ์</label>
-                            <input type="text" v-model="book.PublicationYear" class="form-control" id="genre">
-                        </p>
-                        <p class="form-group col-md-4">
-                            <label for="price">หมวดหมู่</label>
-                            <input type="text" v-model="book.Genre" class="form-control" id="price">
-                        </p>
-                        <p class="form-group col-md-4">
-                            <label for="price">ภาษา</label>
-                            <input type="text" v-model="book.Language" class="form-control" id="price">
-                        </p>
-                       
-                        <p>
-                            <button type="submit" class="btn btn-primary float-right">ยืนยัน</button>
-                            <button v-on:click="navigateTo('/books')" class="btn btn-primary float-right">ย้อนกลับ</button>
-                        </p>
-                    </center>
-                </form>
-            </div>
-        </div>
+    <div>
+        <h1>Create User</h1>
+        <form v-on:submit.prevent="createUser">
+        <p>ชื่อ : <input type="text" v-model="user.name"></p>
+        <p>นามสกุล : <input type="text" v-model="user.lastname"> </p>
+        <p>Email : <input type="text" v-model="user.email"> </p>
+        <p>Password : <input type="text" v-model="user.password"> </p>
+        <p><button type="submit">Create user</button></p>
+        </form>
     </div>
 </template>
 <script>
 
-import BookService from '@/services/BookService'
+import UsersService from '@/services/UsersService'
 export default {
     data() {
         return {
 
-            book: {
-                Title: "",
-                Author: "",
-                Publisher: "",
-                PublicationYear: "",
-                Genre: "",
-                Language: "",
-                Price: ""
+            user: {
+                name: "",
+                lastname: "",
+                email: "",
+                password: "",
+                status: "active",
             }
         }
     },
     methods: {
-
-        navigateTo(route) {
-            this.$router.push(route)
-        },
-
-        async createBook() {
+        async createUser() {
             try {
-                await BookService.post(this.book)
+                await UsersService.post(this.user)
                 this.$router.push({
-                    name: 'books',
+                    name: 'users',
                 })
             } catch (err) {
                 console.log(err)
@@ -79,19 +40,4 @@ export default {
     }
 };
 </script>
-<style scoped>
-.background-image {
-    text-align: center;
-    background-image: url('~@/pic/bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-
-.container-fluid {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-}
-</style>
+<style scoped></style>

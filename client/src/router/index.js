@@ -1,41 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BookIndex from '@/components/Book/Index'
-import BookCreate from '@/components/Book/CreateBook'
-import BookEdit from '@/components/Book/EditBook'
-import BookShow from '@/components/Book/ShowBook'
-import HelloWorld from '@/components/HelloWorld'
+// import BookIndex from '@/components/Book/Index'
+// import BookCreate from '@/components/Book/CreateBook'
+// import BookEdit from '@/components/Book/EditBook'
+// import BookShow from '@/components/Book/ShowBook'
+// import HelloWorld from '@/components/HelloWorld'
+
+import BeverageCreate from '@/components/Beverage/CreateBeverage'
+import BeverageEdit from '@/components/Beverage/EditBeverage'
+import BeverageIndex from '@/components/Beverage/Index'
+import BeverageShow from '@/components/Beverage/ShowBeverage'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/beverages',
+      name: 'beverages',
+      component: BeverageIndex
     },
     {
-      path: '/books',
-      name: 'books',
-      component: BookIndex
+      path: '/beverage/create',
+      name: 'beverage-create',
+      component: BeverageCreate
     },
     {
-      path: '/book/create',
-      name: 'book-create',
-      component: BookCreate
+      path: '/beverage/edit/:beverageId',
+      name: 'beverage-edit',
+      component: BeverageEdit
     },
     {
-      path: '/book/edit/:bookId',
-      name: 'book-edit',
-      component: BookEdit
-    },
-    {
-      path: '/book/:bookId',
-      name: 'book-show',
-      component: BookShow
+      path: '/beverage/:beverageId',
+      name: 'beverage-show',
+      component: BeverageShow
     }
   ]
 })
